@@ -3,7 +3,7 @@
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import { supabase } from '@/lib/supabaseBrowserClient';
+import { supabase } from '@/lib/supabaseClient';
 
 const topicData = {
   'what-is-a-firewall': {

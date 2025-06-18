@@ -14,7 +14,7 @@ export default function Auth() {
     const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
     if (url && key) {
-      const client = createBrowserClient(url, key);
+      const client = createClient(url, key);
       setSupabase(client);
 
       client.auth.getUser().then(({ data: { user } }) => {

@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { createClient } from '@supabase/supabase-js'
+import { createClient } from '@supabase/supabase-js';
 import type { SupabaseClient } from '@supabase/supabase-js';
 
 const QUESTIONS = [
@@ -48,7 +48,7 @@ export default function DiagnosticForm() {
     const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
     if (url && key) {
-      const client = createBrowserClient(url, key);
+      const client = createClient(url, key);
       setSupabase(client);
       client.auth.getUser().then(({ data }) => {
         if (data?.user?.id) setUserId(data.user.id);
@@ -60,7 +60,7 @@ export default function DiagnosticForm() {
     setAnswers(prev => ({ ...prev, [id]: value }));
   };
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const multiplier = RISK_MULTIPLIERS[sector] || 1;
     let total = 0;
