@@ -1,28 +1,39 @@
-// app/page.tsx
 'use client';
-
+import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gray-50 flex flex-col justify-center items-center p-8">
-      <h1 className="text-4xl font-bold text-blue-800 mb-4">Welcome to CyberBalm</h1>
-      <p className="text-center max-w-xl text-gray-700 mb-6">
-        Your intelligent cybersecurity diagnostic platform for SMEs. Diagnose cyber risk, get tailored recommendations, and stay compliant with major frameworks like Cyber Essentials, NIST, and CIS Controls.
+    <main className="min-h-screen flex flex-col items-center justify-center text-center bg-gray-50 text-gray-800 px-4 py-10">
+      <Image
+        src="/cyberbalm-logo.png" // Ensure this file is in /public
+        alt="CyberBalm Logo"
+        width={100}
+        height={100}
+        className="mb-4"
+      />
+      <h1 className="text-4xl font-extrabold text-indigo-800 mb-3">Welcome to CyberBalm</h1>
+      <p className="text-lg max-w-xl mb-6">
+        Your intelligent cybersecurity diagnostic platform for SMEs. Diagnose cyber risk, get tailored recommendations,
+        and stay compliant with Cyber Essentials, NIST, and CIS Controls.
       </p>
 
       <div className="flex gap-4">
         <Link href="/cyber-diagnostic">
-          <button className="bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700 transition">
+          <a className="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded shadow-md transition">
             Start Risk Assessment
-          </button>
+          </a>
         </Link>
         <Link href="/dashboard">
-          <button className="bg-gray-800 text-white px-6 py-3 rounded hover:bg-gray-900 transition">
+          <a className="bg-gray-800 hover:bg-gray-900 text-white px-6 py-3 rounded shadow-md transition">
             View Dashboard
-          </button>
+          </a>
         </Link>
       </div>
+
+      <footer className="mt-12 text-sm text-gray-500">
+        © {new Date().getFullYear()} CyberBalm. All rights reserved.
+      </footer>
     </main>
   );
 }
